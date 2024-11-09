@@ -87,7 +87,7 @@ public class UserCRUD {
             int rowsAffected = stmt.executeUpdate();
             if (rowsAffected == 0) {
             }
-            throw new UserNotFoundException("El usuario con el código + user.getCode() + no existe.");
+            throw new UserNotFoundException("El usuario con el código " + user.getId() + " no existe.");
         } catch (SQLException e) {
 
             throw e; // Propagamos la excepción SQLException para que la maneje el servicio
@@ -200,11 +200,9 @@ public class UserCRUD {
         try {
             Connection con = ConnectionDbMysql.getConnection();
             PreparedStatement stmt = con.prepareStatement(query);
-
             stmt.setString(1, "%" + searchTerm + "%");
             stmt.setString(2, "%" + searchTerm + "%");
             ResultSet rs = stmt.executeQuery();
-
             while (rs.next()) {
                 userList.add(
                         new User(
