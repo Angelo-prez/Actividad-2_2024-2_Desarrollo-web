@@ -67,7 +67,7 @@ public class SuscripCRUD {
 
     // Método para actualizar los campos de la tabla suscripcion
     public void updateSuscrip(Suscrip suscrip) throws SQLException, UserNotFoundException {
-        String query = "UPDATE suscripcion SET tipo=?, costo=?, duracion=?, fecha_inicio=?, WHERE id=?";
+        String query = "UPDATE suscripcion SET tipo=?, costo=?, duracion=?, fecha_inicio=? WHERE id=?";
         try (Connection con = ConnectionDbMysql.getConnection(); PreparedStatement stmt = con.prepareStatement(query)) {
             stmt.setString(1, suscrip.getTipo());
             stmt.setFloat(2, suscrip.getCosto());
@@ -121,7 +121,7 @@ public class SuscripCRUD {
     }
 
     // Método para buscar una suscripcion por id o por la id del usuario
-    public List<Suscrip> searchUsers(String searchTerm) {
+    public List<Suscrip> searchSuscrip(String searchTerm) {
         List<Suscrip> suscripList = new ArrayList<>();
         String query = "SELECT * FROM suscripcion WHERE id LIKE? OR usuario_id  LIKE ?";
         try {
