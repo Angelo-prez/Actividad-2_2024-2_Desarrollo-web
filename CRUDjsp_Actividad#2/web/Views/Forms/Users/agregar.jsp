@@ -24,7 +24,7 @@
         <%-- Formulario para agregar usuario --%>
         <form action="<%= request.getContextPath()%>/Controllers/UserController.jsp?action=create" method="post"> 
             <label for="id">ID</label><br>
-            <input type="number" id="code" name="code" required><br>
+            <input type="number" id="id" name="id" required><br>
 
             <label for="password">PASSWORD</label><br>
             <input type="password" id="password" name="password" required><br>
@@ -35,8 +35,8 @@
             <label for="apellido">APELLIDO</label><br>
             <input type="text" id="apellido" name="apellido" required><br>
 
-            <label for="password">ROL</label><br>
-            <input type="password" id="password" name="password" required><br>
+            <label for="rol">ROL</label><br>
+            <input type="password" id="rol" name="rol" required><br>
 
             <label for="email">EMAIL</label><br>
             <input type="email" id="email" name="email" required><br>
